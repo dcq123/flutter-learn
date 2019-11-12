@@ -11,7 +11,7 @@ class TabItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Icon(
-          Icons.launch,
+          Icons.directions_boat,
           size: 80,
           color: Colors.black12,
         ),
