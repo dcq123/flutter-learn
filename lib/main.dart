@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App',
-      initialRoute: "/",
+      initialRoute: "home",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -41,18 +41,21 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text("基础控件"),
               trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {
-                T.showToast("基础控件");
                 Navigator.pushNamed(context, "base/widget");
               }),
-          Divider(
-            height: 1,
-          )
+          Divider(height: 1),
+          ListTile(
+              leading: Icon(Icons.line_style),
+              title: Text("基础列表"),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {
+                Navigator.pushNamed(context, "list/base");
+              }),
+          Divider(height: 1)
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {
-          T.showToast("我是浮动按钮")
-        },
+        onPressed: () => T.showToast("我是浮动按钮"),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
