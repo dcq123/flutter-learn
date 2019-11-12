@@ -5,6 +5,21 @@ import '../../widget/T.dart';
 class BaseListPage extends StatelessWidget {
   const BaseListPage({Key key}) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: Text("基础列表"),
+      ),
+      body: BaseListWidget(),
+    );
+  }
+}
+
+class BaseListWidget extends StatelessWidget {
+  const BaseListWidget({Key key}) : super(key: key);
+
   Widget _listItemBuild(BuildContext context, int index) {
     var post = posts[index];
     return GestureDetector(
@@ -42,15 +57,9 @@ class BaseListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        title: Text("基础列表"),
-      ),
-      body: ListView.builder(
-        itemCount: posts.length,
-        itemBuilder: _listItemBuild,
-      ),
+    return ListView.builder(
+      itemCount: posts.length,
+      itemBuilder: _listItemBuild,
     );
   }
 }
