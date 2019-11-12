@@ -81,6 +81,14 @@ class HomeListView extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, "list/base");
             }),
+        Divider(height: 1),
+        ListTile(
+            leading: Icon(Icons.tab),
+            title: Text("TabBar组件"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.pushNamed(context, "tab/index");
+            }),
         Divider(height: 1)
       ],
     );
