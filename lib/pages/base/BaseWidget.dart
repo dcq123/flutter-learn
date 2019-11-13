@@ -19,7 +19,9 @@ class BaseWidgetPage extends StatelessWidget {
             SizedBox(height: 16),
             MyContainer(),
             SizedBox(height: 16),
-            MyStackWidget()
+            MyStackWidget(),
+            SizedBox(height: 16),
+            MyAspectRatio()
           ],
         ),
       ),
@@ -170,6 +172,24 @@ class MyStackWidget extends StatelessWidget {
           child: Icon(Icons.ac_unit, color: Colors.white, size: 24),
         ),
       ],
+    );
+  }
+}
+
+// 宽高比控件
+class MyAspectRatio extends StatelessWidget {
+  const MyAspectRatio({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Image.network(
+            'https://resources.ninghao.org/images/undo.jpg',
+            fit: BoxFit.cover,
+          )),
     );
   }
 }
