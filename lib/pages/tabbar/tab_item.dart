@@ -15,6 +15,7 @@ class TabItem extends StatelessWidget {
           size: 80,
           color: Colors.black12,
         ),
+        SizedBox(height: 16,),
         Text(
           content,
           style: TextStyle(color: Colors.black54, fontSize: 20),
