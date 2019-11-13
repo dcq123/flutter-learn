@@ -1,3 +1,4 @@
+import 'package:dcq_flutter/pages/list/BaseListPage.dart';
 import 'package:flutter/material.dart';
 
 class StaticPageView extends StatelessWidget {
@@ -15,6 +16,7 @@ class StaticPageView extends StatelessWidget {
       body: PageView(
         scrollDirection: args["direction"],
         children: <Widget>[
+          // BaseListWidget(),
           Container(
             color: Colors.blueGrey[900],
             child: Center(

@@ -9,6 +9,9 @@ class DynamicPageView extends StatefulWidget {
 }
 
 class _DynamicPageViewState extends State<DynamicPageView> {
+  var _currentIndex = 0;
+
+  // 设置每页内容
   Widget _itemBuilder(BuildContext context, int index) {
     final post = posts[index];
     return Stack(
@@ -33,26 +36,39 @@ class _DynamicPageViewState extends State<DynamicPageView> {
     );
   }
 
-  var _currentIndex = 1;
+  void _pageChanged(int index) {
+    debugPrint("index=$index");
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("动态数据PageView"),
-      ),
       body: Container(
         color: Colors.blueGrey[900],
-        child: Center(
-          child: AspectRatio(
-            aspectRatio: 3 / 2,
-            child: PageView.builder(
-              controller: PageController(
-                  initialPage: _currentIndex, viewportFraction: 1),
-              itemCount: posts.length,
-              itemBuilder: _itemBuilder,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 3 / 2,
+              child: PageView.builder(
+                controller: PageController(
+                    initialPage: _currentIndex, viewportFraction: 1),
+                itemCount: posts.length,
+                itemBuilder: _itemBuilder,
+                onPageChanged: _pageChanged,
+              ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                posts[_currentIndex].imageUrl,
+                style: TextStyle(fontSize: 14, color: Colors.white),
+              ),
+            )
+          ],
         ),
       ),
     );
