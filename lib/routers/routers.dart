@@ -1,3 +1,5 @@
+import 'package:dcq_flutter/pages/list/grid_view_page.dart';
+
 import '../pages/base/BaseWidget.dart';
 import '../main.dart' show MyHomePage;
 import '../pages/list/BaseListPage.dart';
@@ -11,9 +13,10 @@ final routers = {
   "home": (context) => MyHomePage(title: "主页"),
   "base/widget": (context) => BaseWidgetPage(),
   "list/base": (context) => BaseListPage(),
+  "list/grid": (context) => GridViewPage(),
   "tab/index": (context) => TabBarPage(),
   "nav/bar": (context) => MyBottomNavigationBar(),
   "pageview/index": (context) => PageViewDemo(),
   "pageview/static": (context) => StaticPageView(),
-  "pageview/dynamic": (context) => DynamicPageView()
+  "pageview/dynamic": (context) => DynamicPageView(),
 };

@@ -72,6 +72,14 @@ class HomeListView extends StatelessWidget {
             }),
         Divider(height: 1),
         ListTile(
+            leading: Icon(Icons.card_giftcard),
+            title: Text("GridView"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.pushNamed(context, "list/grid");
+            }),
+        Divider(height: 1),
+        ListTile(
             leading: Icon(Icons.tab),
             title: Text("TabBar组件"),
             trailing: Icon(Icons.keyboard_arrow_right),

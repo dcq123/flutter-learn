@@ -1,4 +1,3 @@
-import 'package:dcq_flutter/pages/list/BaseListPage.dart';
 import 'package:flutter/material.dart';
 
 class StaticPageView extends StatelessWidget {

@@ -17,41 +17,62 @@ class BaseListPage extends StatelessWidget {
   }
 }
 
-class BaseListWidget extends StatelessWidget {
-  const BaseListWidget({Key key}) : super(key: key);
+class ItemWidget extends StatelessWidget {
+  final Post post;
 
-  Widget _listItemBuild(BuildContext context, int index) {
-    var post = posts[index];
+  ItemWidget({Key key, this.post}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         T.showToast("标题:${post.title}");
       },
-      child: Card(
-        color: Colors.white,
-        margin: EdgeInsets.all(12),
-        child: Column(
-          children: <Widget>[
-            Image.network(post.imageUrl),
-            Container(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(post.title, style: Theme.of(context).textTheme.title),
-                  SizedBox(height: 8),
-                  Text(post.author,
-                      style: Theme.of(context).textTheme.subtitle),
-                  SizedBox(height: 8),
-                  Text(post.description,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 14, color: Colors.grey)),
-                ],
+      child: Container(
+        height: 300,
+        padding: EdgeInsets.only(left: 8,right: 8),
+        child: Card(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                  child: Container(
+                      width: double.infinity,
+                      child: Image.network(post.imageUrl, fit: BoxFit.cover))),
+              Container(
+                padding: EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(post.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.title),
+                    SizedBox(height: 8),
+                    Text(post.author,
+                        style: Theme.of(context).textTheme.subtitle),
+                    SizedBox(height: 8),
+                    Text(post.description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 14, color: Colors.grey)),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
+    );
+  }
+}
+
+class BaseListWidget extends StatelessWidget {
+  const BaseListWidget({Key key}) : super(key: key);
+
+  Widget _listItemBuild(BuildContext context, int index) {
+    return ItemWidget(
+      post: posts[index],
     );
   }
 
