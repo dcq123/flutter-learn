@@ -102,6 +102,14 @@ class HomeListView extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, "pageview/index");
             }),
+        Divider(height: 1),
+        ListTile(
+            leading: Icon(Icons.select_all),
+            title: Text("Sliver控件"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.pushNamed(context, "sliver");
+            }),
         Divider(height: 1)
       ],
     );

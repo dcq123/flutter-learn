@@ -1,4 +1,5 @@
 import 'package:dcq_flutter/pages/list/grid_view_page.dart';
+import 'package:dcq_flutter/pages/sliver/sliver_page.dart';
 
 import '../pages/base/BaseWidget.dart';
 import '../main.dart' show MyHomePage;
@@ -19,4 +20,5 @@ final routers = {
   "pageview/index": (context) => PageViewDemo(),
   "pageview/static": (context) => StaticPageView(),
   "pageview/dynamic": (context) => DynamicPageView(),
+  "sliver":(context)=>SliverPage()
 };
