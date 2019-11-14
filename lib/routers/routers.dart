@@ -1,3 +1,4 @@
+import 'package:dcq_flutter/pages/form/login_form.dart';
 import 'package:dcq_flutter/pages/list/grid_view_page.dart';
 import 'package:dcq_flutter/pages/list/item_detail.dart';
 import 'package:dcq_flutter/pages/sliver/sliver_page.dart';
@@ -22,5 +23,6 @@ final routers = {
   "pageview/index": (context) => PageViewDemo(),
   "pageview/static": (context) => StaticPageView(),
   "pageview/dynamic": (context) => DynamicPageView(),
-  "sliver": (context) => SliverPage()
+  "sliver": (context) => SliverPage(),
+  "form/login":(context)=>LoginFormPage()
 };

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../mode/Post.dart';
-import '../../widget/T.dart';
 
 class BaseListPage extends StatelessWidget {
   const BaseListPage({Key key}) : super(key: key);

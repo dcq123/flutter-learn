@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "home",
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        splashColor: Colors.white24
       ),
       routes: routers,
     );
@@ -109,6 +110,14 @@ class HomeListView extends StatelessWidget {
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
               Navigator.pushNamed(context, "sliver");
+            }),
+        Divider(height: 1),
+        ListTile(
+            leading: Icon(Icons.person),
+            title: Text("form表单-登录页面"),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.pushNamed(context, "form/login");
             }),
         Divider(height: 1)
       ],
