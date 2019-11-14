@@ -24,45 +24,62 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        T.showToast("标题:${post.title}");
-      },
-      child: Container(
-        height: 300,
-        padding: EdgeInsets.only(left: 8,right: 8),
-        child: Card(
-          color: Colors.white,
-          child: Column(
-            children: <Widget>[
-              Expanded(
+    return Stack(
+      children: <Widget>[
+        Container(
+          height: 300,
+          padding: EdgeInsets.only(left: 8, right: 8),
+          child: Card(
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                Expanded(
                   child: Container(
-                      width: double.infinity,
-                      child: Image.network(post.imageUrl, fit: BoxFit.cover))),
-              Container(
-                padding: EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(post.title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.title),
-                    SizedBox(height: 8),
-                    Text(post.author,
-                        style: Theme.of(context).textTheme.subtitle),
-                    SizedBox(height: 8),
-                    Text(post.description,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 14, color: Colors.grey)),
-                  ],
+                    width: double.infinity,
+                    child: Image.network(post.imageUrl, fit: BoxFit.cover),
+                  ),
                 ),
-              ),
-            ],
+                Container(
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(post.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.title),
+                      SizedBox(height: 8),
+                      Text(post.author,
+                          style: Theme.of(context).textTheme.subtitle),
+                      SizedBox(height: 8),
+                      Text(post.description,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 14, color: Colors.grey)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
+        Positioned.fill(
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              splashColor: Colors.white.withOpacity(0.3),
+              highlightColor: Colors.white.withOpacity(0.1),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  "list/item/detail",
+                  arguments: post,
+                );
+              },
+            ),
+          ),
+        )
+      ],
     );
   }
 }

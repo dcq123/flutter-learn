@@ -1,4 +1,5 @@
 import 'package:dcq_flutter/pages/list/grid_view_page.dart';
+import 'package:dcq_flutter/pages/list/item_detail.dart';
 import 'package:dcq_flutter/pages/sliver/sliver_page.dart';
 
 import '../pages/base/BaseWidget.dart';
@@ -15,10 +16,11 @@ final routers = {
   "base/widget": (context) => BaseWidgetPage(),
   "list/base": (context) => BaseListPage(),
   "list/grid": (context) => GridViewPage(),
+  "list/item/detail": (context) => ItemDetailPage(),
   "tab/index": (context) => TabBarPage(),
   "nav/bar": (context) => MyBottomNavigationBar(),
   "pageview/index": (context) => PageViewDemo(),
   "pageview/static": (context) => StaticPageView(),
   "pageview/dynamic": (context) => DynamicPageView(),
-  "sliver":(context)=>SliverPage()
+  "sliver": (context) => SliverPage()
 };
